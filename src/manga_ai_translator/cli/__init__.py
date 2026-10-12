@@ -9,6 +9,7 @@ import typer
 from manga_ai_translator import __version__
 from manga_ai_translator.cli._context import AppContext, console, fail
 from manga_ai_translator.cli.config_cmd import config_app
+from manga_ai_translator.cli.project_cmd import project_app
 from manga_ai_translator.config import ConfigError, LogLevel, load_config
 from manga_ai_translator.logging_setup import setup_logging
 
@@ -20,6 +21,7 @@ app = typer.Typer(
     no_args_is_help=True,
     pretty_exceptions_enable=False,
 )
+app.add_typer(project_app, name="project")
 app.add_typer(config_app, name="config")
 
 
