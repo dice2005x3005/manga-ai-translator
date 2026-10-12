@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Environments
+.venv/
+.env
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local-only planning notes
+docs/PLAN.md
+
+# Model weights (downloaded at runtime, never committed)
+models/
+*.gguf
+*.onnx
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.part
+
+# Manga content is copyrighted: never commit pages, projects or outputs
+data/
+projects/
+output/
+*.mangat/
+*.cbz
+*.cbr
+*.zip
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.webp
+
+# Logs and local config
+*.log
+config.toml
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Claude Code local settings
+.claude/settings.local.json
