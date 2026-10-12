@@ -1,0 +1,26 @@
+# Manga AI Translator configuration.
+# Every setting is optional: delete or comment out a line to use its default.
+# Relative paths are resolved against the folder that contains this file.
+# Environment variables such as %LOCALAPPDATA% are expanded.
+
+[paths]
+# Where downloaded model weights are stored. They can take several GB.
+# models_dir = "%LOCALAPPDATA%/MangaAITranslator/models"
+
+# Where log files are written.
+# logs_dir = "%LOCALAPPDATA%/MangaAITranslator/Logs"
+
+[runtime]
+# "auto" uses the NVIDIA GPU when one is usable, otherwise the CPU. Also: "cuda", "cpu".
+# device = "auto"
+
+# Numeric precision for vision models: "fp32" or "fp16".
+# GTX 16xx cards are known to produce broken results in fp16, so fp32 is the default.
+# precision = "fp32"
+
+# "quality" favors the best translation and image quality over speed. Also: "balanced".
+# profile = "quality"
+
+[logging]
+# Console log level: "DEBUG", "INFO", "WARNING" or "ERROR". Log files always record DEBUG.
+# level = "INFO"
