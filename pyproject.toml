@@ -2,6 +2,7 @@
 name = "manga-ai-translator"
 version = "0.1.0"
 description = "Desktop app that translates manga from Japanese to English with local AI models."
+readme = "README.md"
 license = "GPL-3.0-or-later"
 license-files = ["LICENSE"]
 requires-python = ">=3.12,<3.13"
