@@ -6,7 +6,8 @@ from enum import StrEnum
 from pathlib import Path
 
 from manga_ai_translator import __version__
-from manga_ai_translator.imaging import list_images, read_image_info, sha256_file
+from manga_ai_translator.fileutils import sha256_file
+from manga_ai_translator.imaging import list_images, read_image_info
 from manga_ai_translator.project.schema import Page, Project, SourceImage
 from manga_ai_translator.project.store import (
     PROJECT_DIR_SUFFIX,

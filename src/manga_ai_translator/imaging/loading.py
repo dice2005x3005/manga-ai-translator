@@ -4,7 +4,6 @@ Pages are decoded to 8-bit RGB for processing, but the original mode, format and
 profile are kept so the final export can match the source (e.g. grayscale stays grayscale).
 """
 
-import hashlib
 import io
 import re
 from dataclasses import dataclass
@@ -18,7 +17,6 @@ _EXIF_ORIENTATION_TAG = 0x0112
 _ROTATED_ORIENTATIONS = frozenset({5, 6, 7, 8})  # orientations that swap width and height
 _SIXTEEN_BIT_MODES = frozenset({"I;16", "I;16L", "I;16B", "I;16N"})
 _ALPHA_MODES = frozenset({"RGBA", "LA", "PA", "RGBa", "La"})
-_HASH_CHUNK_BYTES = 1 << 20
 
 
 class ImageError(Exception):
@@ -136,11 +134,3 @@ def _cmyk_to_rgb(image: Image.Image, icc_profile: bytes | None) -> Image.Image:
             if converted is not None:
                 return converted
     return image.convert("RGB")
-
-
-def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as file:
-        while chunk := file.read(_HASH_CHUNK_BYTES):
-            digest.update(chunk)
-    return digest.hexdigest()

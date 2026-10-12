@@ -5,7 +5,8 @@ from PIL import Image
 from typer.testing import CliRunner
 
 from manga_ai_translator.cli import app
-from manga_ai_translator.imaging import ImageError, sha256_file
+from manga_ai_translator.fileutils import sha256_file
+from manga_ai_translator.imaging import ImageError
 from manga_ai_translator.project import ProjectError, load_project
 from manga_ai_translator.project.create import (
     SourceStatus,

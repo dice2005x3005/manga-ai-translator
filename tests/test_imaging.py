@@ -4,13 +4,13 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
+from manga_ai_translator.fileutils import sha256_file
 from manga_ai_translator.imaging import (
     ImageError,
     list_images,
     load_image,
     natural_sort_key,
     read_image_info,
-    sha256_file,
 )
 
 RED = (255, 0, 0)
