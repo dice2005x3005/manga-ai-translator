@@ -16,6 +16,7 @@ from platformdirs import user_config_dir, user_data_dir, user_log_dir
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator
 
 from manga_ai_translator import APP_NAME
+from manga_ai_translator._validation import format_validation_error
 
 CONFIG_ENV_VAR = "MANGAT_CONFIG"
 CONFIG_FILENAME = "config.toml"
@@ -134,14 +135,6 @@ def load_config(explicit: Path | None = None) -> LoadedConfig:
         if not value.is_absolute():
             setattr(config.paths, name, path.parent / value)
     return LoadedConfig(config, path)
-
-
-def format_validation_error(exc: ValidationError) -> str:
-    lines = []
-    for error in exc.errors():
-        location = ".".join(str(part) for part in error["loc"]) or "<root>"
-        lines.append(f"  {location}: {error['msg']}")
-    return "\n".join(lines)
 
 
 def example_config_text() -> str:
